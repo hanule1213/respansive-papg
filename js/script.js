@@ -38,6 +38,7 @@ fetch("data/data.json")
       // 레이아웃 재계산
       cardWrapIso.layout();
     });
+
     // 필터 기능
     const filterBtnList = document.querySelectorAll(".filter li");
     // console.log(filterBtnList);
@@ -66,12 +67,13 @@ function renderCardList() {
     .map((card, index) => {
       return `
     <div class="card ${card.oddToEven} ${card.kindOfWork}">
-      <div class="inner">
-            <img src="${card.imgSrc}" alt="${card.title}" />
-            <h2>첫 번째 작업물</h2>
-            <p>첫 번째 작업에 대한 설명입니다.</p>
-          </div>
-        </div>`;
+     <div class="inner">
+      <img src="${card.imgSrc}" alt="${card.title}" />
+      <h2>${card.title}</h2>
+      <p>${card.desc}</p>
+      <p>${card.createdAt}</p>
+     </div>
+    </div>`;
     })
     .join("");
 
